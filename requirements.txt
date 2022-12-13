@@ -1,0 +1,5 @@
+xmltodict
+dash
+praw
+dash-bootstrap-components
+pandas
