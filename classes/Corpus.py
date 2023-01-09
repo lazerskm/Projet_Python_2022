@@ -91,7 +91,7 @@ class Corpus:
         for index, row in freq.iterrows():
             cpt = 0
             for doc in self.id2doc.values():
-                if f' {index} ' in doc.texte:
+                if f'{index}' in doc.texte:
                     cpt+=1
             doc_freq.append(cpt)
         

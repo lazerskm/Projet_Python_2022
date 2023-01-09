@@ -3,3 +3,4 @@ dash
 praw
 dash-bootstrap-components
 pandas
+scipy
