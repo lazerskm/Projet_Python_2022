@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Oct 26 18:41:10 2022
-
-@author: Lazer
-"""
-
 class Author:
     def __init__(self, name):
         self.name = name

@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Oct 11 11:34:21 2022
-
-@author: Lazer
-"""
-
 import urllib, urllib.request
 import xmltodict
 import praw

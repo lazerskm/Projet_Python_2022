@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct 20 16:18:09 2022
-
-@author: Lazer
-"""
-
 class Document :
     def __init__(self, titre, auteur, date, url, texte):
         self.titre = titre

@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 22 17:50:36 2022
-
-@author: Lazer
-"""
-
 import re
 import math
 import numpy as np
@@ -48,6 +41,8 @@ def TFxIDF(tf, liste_idf):
         TFxIDF.append(doc_TFxIDF)
     return csr_matrix(TFxIDF)
 
+def make_clikable_url(row):
+    return f'[Lien]({row})'
 
 def moteur_recherche(mots_clefs, corpus):
     freq = corpus.stats(10)
@@ -84,8 +79,10 @@ def moteur_recherche(mots_clefs, corpus):
         titres.append(doc.titre)
         textes.append(doc.texte)
         url.append(doc.url)
-    data = {"titre" : titres, "auteur" : auteurs, "date" : dates, "texte" : textes, "URL" : url}
+    data = {"titre" : titres, "auteur" : auteurs, "date" : dates, "texte" : textes, "lien" : url}
     df = pd.DataFrame.from_dict(data)
     df["score"] = similarity_list
+    df['lien'] = df['lien'].apply(make_clikable_url)
+    df = df.loc[df["score"] > 0]
     df = df.sort_values(by="score", ascending=False)
     return df

@@ -1,12 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct 27 16:57:19 2022
-
-@author: Lazer
-"""
-
 from classes.Author import Author
-from fonctions.divers import nettoyer_texte
+from fonctions.divers import nettoyer_texte, make_clikable_url
 
 import pandas as pd
 import pickle
@@ -106,4 +99,22 @@ class Corpus:
         print("nombre de mots différents : " + str(len(dict_w)))
         return freq
         
+    def get_data(self):
+        auteurs = list()
+        dates = list()
+        textes = list()
+        titres = list()
+        url = list()   
+        
+        for doc in self.id2doc.values():
+            auteurs.append(doc.auteur)
+            dates.append(doc.date)
+            titres.append(doc.titre)
+            textes.append(doc.texte)
+            url.append(doc.url)
+            
+        data = {"titre" : titres, "auteur" : auteurs, "date" : dates, "texte" : textes, "lien" : url}
+        df = pd.DataFrame.from_dict(data)
+        df['lien'] = df['lien'].apply(make_clikable_url)
+        return df
         
