@@ -21,19 +21,6 @@ def arxiv_scrapping():
         except:
             elem["author"] = elem["author"]["name"]
         docs.append(("arxiv" , elem))
-        
-        
-        """auts = []
-        if type(elem["author"]) == list:
-            for a in elem["author"]:
-                auteur = Author(a.get('name'), 0, {})
-                auts.append(auteur)
-        else:
-            auteur = Author(elem["author"].get('name'), 0, {})
-            auts.append(auteur)
-        date = datetime.datetime.strptime(elem["published"], '%Y-%m-%dT%H:%M:%SZ')
-        doc = Document(elem["title"], auts, date, elem["link"][0]["@href"], elem["summary"].replace('\n', ' '))
-        docs.append(doc)"""
     return docs
 
 #Scrapping pour les données Reddit
@@ -51,15 +38,4 @@ def reddit_scrapping():
         post.author.name = str(post.author.name)
         post.created = datetime.datetime.fromtimestamp(post.created)
         docs.append(("reddit" , post))
-        
-        
-        """auts = []
-        if post.author != None:
-            auteur = Author(post.author.name, 0, {}) 
-            auts.append(auteur)
-        else:
-            auts.append(None)
-        date = post.created
-        doc = Document(post.title, auts, datetime.datetime.fromtimestamp(date), post.url, post.selftext.replace('\n', ' '))
-        docs.append(doc)"""
     return docs
