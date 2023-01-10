@@ -4,7 +4,7 @@ import praw
 import datetime
 
 
-
+#Scrapping pour les données arxiv
 def arxiv_scrapping():
     url = 'http://export.arxiv.org/api/query?search_query=all:basketball&max_results=100'
     data = urllib.request.urlopen(url)
@@ -36,7 +36,7 @@ def arxiv_scrapping():
         docs.append(doc)"""
     return docs
 
-
+#Scrapping pour les données Reddit
 def reddit_scrapping():
     reddit = praw.Reddit(client_id='IVZ3ND2OTMImg7UQ5wVcvg', client_secret='LQJqPfFFWvRVI5wEMhtG0GSckNmvoQ', user_agent='TD3_scrapping', check_for_async=False)
     hot_posts = reddit.subreddit('basketball').top()

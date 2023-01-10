@@ -5,6 +5,7 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 from numpy.linalg import norm
 
+# Nettoyage du texte
 def nettoyer_texte(texte):
     texte = texte.lower()
     texte = texte.replace("\n", " ")
@@ -44,6 +45,7 @@ def TFxIDF(tf, liste_idf):
 def make_clikable_url(row):
     return f'[Lien]({row})'
 
+# calcule du score pour les mots clés
 def moteur_recherche(mots_clefs, corpus):
     freq = corpus.stats(10)
     vocab = {}

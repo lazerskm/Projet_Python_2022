@@ -2,6 +2,7 @@ from dash import html, dcc , dash_table
     
 champ_texte = dcc.Input(id = "mots_clefs", type="text", placeholder="", debounce=True)
 
+# mise en forme du tableau Dash
 tableau = dash_table.DataTable(
     id = 'tableau',
     editable=False,

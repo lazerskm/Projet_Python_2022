@@ -10,6 +10,7 @@ from main import corpus
     dash.dependencies.Output('tableau', 'hidden_columns')],
     dash.dependencies.Input('mots_clefs', 'value')
 )
+# mets à jour le tableau 
 def update_table(value):
     if value == None or value == "":
         data = corpus.get_data()

@@ -6,12 +6,14 @@ from classes.Document import DocumentGenerator
 import pickle
 
 
-
+# on créer une variable donnees qui récupere les données reddit et arxiv
 """donnees = reddit_scrapping() + arxiv_scrapping()
-    
+
+# on sauvegarde les données 
 with open("donnees/donnees.pkl", "wb") as f:
     pickle.dump(donnees, f)"""
-    
+
+#On charge les données
 with open("donnees/donnees.pkl", "rb") as f:
     donnees = pickle.load(f)
 
