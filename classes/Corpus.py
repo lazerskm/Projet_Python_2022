@@ -54,12 +54,14 @@ class Corpus:
         if self.chaine_unique == "" :
             textes = [doc.getTexte() for doc in self.id2doc.values()]
             self.chaine_unique = " ".join(textes)
+            
         return re.findall(mot_clef, self.chaine_unique)
     
     def concorde(self, taille_contexte, mot_clef):
         if self.chaine_unique == "" :
             textes = [doc.getTexte() for doc in self.id2doc.values()]
             self.chaine_unique = " ".join(textes)
+            
         index = re.finditer(mot_clef, self.chaine_unique)
         avant = []
         mot = []
@@ -78,6 +80,10 @@ class Corpus:
         return df
     
     def stats(self, n):
+        if self.chaine_unique == "" :
+            textes = [doc.getTexte() for doc in self.id2doc.values()]
+            self.chaine_unique = " ".join(textes)
+            
         self.chaine_unique = nettoyer_texte(self.chaine_unique)
         words = re.split(r'\t|\s', self.chaine_unique)
         words = [word for word in words if word != '']
